@@ -15,14 +15,22 @@ Future Ideas from Canvas2Image blog post comments
 ------------
 
 Bade.I. says:
-For the filename issue, add the download attribute to your \ tag. i.e. <a download="test.png" href="javascript:document.getElementById(<canvas_div_id>).toDataURL('image/png').replace(image/png);"
+For the filename issue, add the download attribute to your \ tag. i.e. 
+
+```html
+<a download="test.png" 
+href="javascript:document.getElementById(<canvas_div_id>).toDataURL('image/png').replace(image/png);">link</a>
+```
 
 Michael says:
 However, if you want to change the file name but you don't have a link to add the download attribute to you can create a link using javascript and call the click function on it:
+
+```javascript
 var a = document.createElement("a");
 a.download = fileName + fileExtension;
 a.href = strData;
 a.click();
+```
 
 To use this code, change the contents of the function saveFile to that above. This is useful for automatically downloading multiple images. You may want to pass fileName and fileExtension as parameters to the saveFile function along with strData.
 
