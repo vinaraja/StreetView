@@ -44,15 +44,16 @@ http.createServer(function(request, res) {
       });              
 
    } else if(uri === "/") {
+	   console.log(uri);
 	   console.log("inside uri//");
-       fs.readFile("./public/index.html",function(err, data){
+       fs.readFile("C:/Users/vinay/Documents/gsv-pano-save/public/index.html",function(err, data){
          if(err) throw err;
           res.writeHead(200, {'Content-Type': 'text/html'});
           res.end(data);
        });    
    }
 
-}).listen(8080); 
+}).listen(8081); 
 
 
 

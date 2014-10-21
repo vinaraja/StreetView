@@ -202,7 +202,7 @@
 			</div>
             -->
                <button type="submit" id="saveImageButton" style="width: 100%" class="button">Save pano</button>
-            <form >
+            <form action="process" method="get">
              <input type="hidden" name="address1" id="address1" />
                 <button type="submit" id="sendImageButton" style="width: 100%" class="button">Send pano to SOS</button>
                
@@ -486,7 +486,7 @@ void main() {
 				 var data=canvas.toDataURL();
 				
 				var myhttp = new XMLHttpRequest();
-       			var url = "http://localhost:8080/test";
+       			var url = "http://localhost:8081/test";
 				console.log("calling url");
 				myhttp.open('POST', url, true);
 				console.log("sending data");
