@@ -1,7 +1,7 @@
 var connect = require('connect');
 var fs=require('fs');
 var sys=require('sys');
-var express=require ('express');
+//var express=require ('express');
 var http=require ('http');
 console.log("outside");
 var app = connect()
@@ -29,4 +29,4 @@ var app = connect()
 		}
 		
 	})
-	.listen("8080");
+	.listen("3600");

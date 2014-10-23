@@ -3,7 +3,12 @@ var sys = require("sys"),
     http = require("http"),
     url = require("url"),
     path = require("path"),
-    fs = require("fs");
+    fs = require("fs"),
+    net=require("net"),
+    host="127.0.0.1",
+    port="2468",
+    playlist="normal-demo.sos",
+    id="3";
 
 http.createServer(function(request, res) { 
 	//console.log("open");   
@@ -12,10 +17,10 @@ http.createServer(function(request, res) {
    //console.log(parsed_url);
    var uri = parsed_url.pathname;
    //console.log(uri);
-    if(fs.existsSync('C:/Users/vinay/Pictures/image1.png'))
+    if(fs.existsSync('/home/sos/image1.png'))
 			{
 				console.log("file exists");
-				fs.unlinkSync('C:/Users/vinay/Pictures/image1.png');
+				fs.unlinkSync('/home/sos/image1.png');
 			}
 			else
 			{
@@ -37,55 +42,52 @@ http.createServer(function(request, res) {
 		  var data = address.replace(/^undefineddata:image\/\w+;base64/, "");
 			//console.log(data);
 			var buf = new Buffer(data, 'base64');
-			fs.writeFile('C:/Users/vinay/Pictures/image1.png', buf);
+			fs.writeFile('/home/sos/image1.png', buf);
           res.write("Post data");
           res.end();
 		  console.log("file created");
-      });              
+	
+	
+var net = require('net');
 
+var client = new net.Socket();
+client.connect(port, host, function() {
+
+   console.log('CONNECTED TO: ' + host + ':' + port);
+   //server will receive it as message from the client 
+   client.write("enable" + "\n", "UTF-8");
+   client.write("set_auto_presentation_mode 0\n", "UTF-8");
+   client.write ("open_playlist " + playlist + "\n", "UTF-8");
+   client.write("play " +id + "\n", "UTF-8");
+});
+
+// Add a 'data' event handler for the client socket
+// data is what the server sent to this socket
+client.on('data', function(data) {
+    
+    console.log('DATA: ' + data);
+    // Close the client socket completely
+    //client.destroy();
+    
+});
+
+// Add a 'close' event handler for the client socket
+client.on('close', function() {
+    console.log('Connection closed');
+});
+
+		
+      })            
+	console.log("outside")
    } else if(uri === "/") {
 	   console.log(uri);
 	   console.log("inside uri//");
-       fs.readFile("C:/Users/vinay/Documents/gsv-pano-save/public/index.html",function(err, data){
+       fs.readFile("/home/sos/gsv-pano-save/public/index.html",function(err, data){
          if(err) throw err;
           res.writeHead(200, {'Content-Type': 'text/html'});
           res.end(data);
        });    
    }
 
-}).listen(8081); 
+}).listen(3602); 
 
-
-
-
-
-
-/**var connect = require('connect');
-var fs=require('fs');
-var sys=require('sys');
-var express=require ('express');
-console.log("outside");
-var app = connect()
-	.use(connect.bodyParser())
-	.use(connect.static('public'))
-	.use(function (req, res) {
-		console.log("hello 1");
-		if (req.url === '/process') {
-			console.log("inside request");
-			var address=req.body.address1;
-			console.log(address);
-			console.log("hello");
-			//res.end(req.body.address + ' would repeat ' + 5 + ' times.');
-			var data = address.replace(/^data:image\/\w+;base64,/, "");
-			//console.log(data);
-			var buf = new Buffer(data, 'base64');
-			//fs.createWriteStream("C:\Users\vinay\Documents\GitHub" + '/text.png')
-			
-			fs.writeFile('C:/Users/vinay/Documents/image.png', buf);
-			
-		} else {
-			res.end("Invalid Request");
-		}
-		
-	})
-	.listen("8080");**/
