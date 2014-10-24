@@ -220,7 +220,7 @@
         -->
 		
         <div id="options-head" class="options hide">          
-            <h1>Google Street View</h1>
+            <h1>SOS Google Street View</h1>
             <!--<button type="submit" id="mybtn1" class="button" style="float:right">Collapse</button>-->
             <span id="hamburger">
                 <div class="stripe stripeDown"></div>
@@ -246,11 +246,13 @@
                 </form>
             </div>
 
+            <!--
             <div class="block">
-                <button type="submit" id="myLocationButton" style="width: 49%" class="button">Use my location</button>
-                <button type="submit" id="fullscreenButton" style="width: 49%" class="button">Go fullscreen</button>
+                <button type="submit" id="myLocationButton" style="width: 49.25%" class="button">Use my location</button>
+                <button type="submit" id="fullscreenButton" style="width: 49.25%" class="button">Go fullscreen</button>
             </div>
-
+            -->
+            
             <!--
             <div class="block">
                 <b>Quality</b>
@@ -263,11 +265,14 @@
             </div>
             -->
 
-            <button type="submit" id="saveImageButton" style="width: 100%" class="button">Save pano</button>
-            <form action="process" method="get">
-                <input type="hidden" name="address1" id="address1" />
-                <button type="submit" id="sendImageButton" style="width: 100%" class="button">Send pano to SOS</button>               
-            </form>
+            <div class="block">
+                <!--<button type="submit" id="saveImageButton" style="width: 100%" class="button">Save pano</button>-->
+                <form action="process" method="get">
+                    <input type="hidden" name="address1" id="address1" />
+                    <button type="submit" id="sendImageButton" style="width: 100%" class="button">Send pano to SOS</button>               
+                </form>
+            </div>
+                
             <div class="block" id="status" >
                 <div id="message" ></div>
                 <div id="error" ></div>
@@ -373,8 +378,12 @@ void main() {
 		function initialize() {
 			
 			var locations = [
-				{ lat: 39.171586, lng: -86.502241 }, // CIB
-                { lat: 39.772953, lng: -86.168587 }  // ICTC
+                { lat: 29.9443012, lng: -90.0645391 },  // New Orleans Convention Center
+                { lat: 29.9571429, lng: -90.0624198 },  // Jackson Square
+                { lat: 29.9526918, lng: -90.0804524 },  // Superdome
+                { lat: 29.9594784, lng: -90.0648768 }  // Bourbon St
+				//{ lat: 39.171586, lng: -86.502241 }, // CIB
+                //{ lat: 39.772953, lng: -86.168587 }  // ICTC
 			];
 			
 			var pos;
@@ -483,14 +492,17 @@ void main() {
 			
 			onWindowResized( null );
 			
+            /*
 			var el = document.getElementById( 'myLocationButton' );
 			el.addEventListener( 'click', function( event ) {
 				event.preventDefault();
 				navigator.geolocation.getCurrentPosition( geoSuccess, geoError );
 			}, false );
-			
+			*/
+            
 			navigator.pointer = navigator.pointer || navigator.webkitPointer || navigator.mozPointer;  
 
+            /*
 			var el = document.getElementById( 'fullscreenButton' );
 			if( el ) {
 				el.addEventListener( 'click', function( e ) {
@@ -509,14 +521,15 @@ void main() {
 					e.preventDefault();
 				}, false );
 			}
-			
-			el = document.getElementById( 'searchButton' );
+			*/
+            
+			var el = document.getElementById( 'searchButton' );
 			el.addEventListener( 'click', function( event ) {
 				event.preventDefault();
 				findAddress( document.getElementById("address").value );
 			}, false );
             
-            
+            /*
             el = document.getElementById( 'saveImageButton' );
 			el.addEventListener( 'click', function( event ) {
 				event.preventDefault();
@@ -529,7 +542,7 @@ void main() {
                 // insert code here to send canvas.toDataURL() result to SOS host
 				document.getElementById("address1").value=canvas.toDataURL();
 			}, false );
-            
+            */
             
             
             
@@ -624,7 +637,7 @@ void main() {
 				showProgress( false );
 			};
 
-			setZoom( 4 ); // use highest quality texture
+			setZoom( 3 ); // use second-highest quality texture
 			addMarker( myLatlng ); // initial position (thanks @mrdoob!)
 			animate();
 		}
