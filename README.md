@@ -19,15 +19,29 @@ Dependencies
 
 Setup
 -----
-Insert instructions for installing Node, npm, modules, etc
+Step 1:
+Install Node.js to your system.
+Please follow this video to set up Node.
+http://www.youtube.com/watch?v=TObxI3vUUUk.
+Step 2:
+Once Node is installed type Npm on the command prompt it should display some files which shows Node was installed successfully.If the terminal says module not found please reinstall Node following step 1.
 
 Startup
 -------
-Insert instructions for how to start the servers and the client
+1.Once Node is setup download the zip file from github.iu.edu/dmreagan/gsv-pano-save.
+2.Next step open the terminal.Redirect it to the folder which containes the zip file.
+3.Next run npm install on terminal.It will install all the node modules that is required.
+4.Once this is done the node modules will appear in the directory.
+5.Next open a terminal and type node server.js.
+6.You will be able to open the webpage using the //ipaddress:3600.
+7.Next open a new terminal and type node script.js.
+8.Your website should be able to send images to the system.
 
 Notes
 -----
 Insert tips such as
 
 * Ctrl+c will kill the server
-* Avoid hitting Ctrl+v, as it will pause the server, requiring a restart or port change to work again
+* Avoid hitting Ctrl+z, as it will pause the server, requiring a restart or port change to work again
+* Please make the following changes if you run it on a new system.Change the host in script.js to the current ip address of the system and the port to current telnet port supported by sos.
+* Open index.html contained in the public folder and replace this line var url = "http://localhost:3602/test" with var url = "http://"ipaddress":3602/test".
