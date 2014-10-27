@@ -29,12 +29,19 @@ Once Node is installed type Npm on the command prompt it should display some fil
 Startup
 -------
 1.Once Node is setup download the zip file from github.iu.edu/dmreagan/gsv-pano-save.
+
 2.Next step open the terminal.Redirect it to the folder which containes the zip file.
+
 3.Next run npm install on terminal.It will install all the node modules that is required.
+
 4.Once this is done the node modules will appear in the directory.
+
 5.Next open a terminal and type node server.js.
+
 6.You will be able to open the webpage using the //ipaddress:3600.
+
 7.Next open a new terminal and type node script.js.
+
 8.Your website should be able to send images to the system.
 
 Notes
