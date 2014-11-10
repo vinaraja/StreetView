@@ -19,34 +19,31 @@ Dependencies
 
 Setup
 -----
-Step 1:
-Install Node.js to your system.
-Please follow this video to set up Node.
-http://www.youtube.com/watch?v=TObxI3vUUUk.
-Step 2:
-Once Node is installed type Npm on the command prompt it should display some files which shows Node was installed successfully.If the terminal says module not found please reinstall Node following step 1.
+
+1. Install Node.js to your system. Please follow [this video](http://www.youtube.com/watch?v=TObxI3vUUUk) to set up Node..
+
+2. Once Node is installed type Npm on the command prompt it should display some files which shows Node was installed successfully.If the terminal says module not found please reinstall Node following step 1.
 
 Startup
 -------
-1.Once Node is setup download the zip file from github.iu.edu/dmreagan/gsv-pano-save.
+1. Once Node is setup download the zip file from github.iu.edu/dmreagan/gsv-pano-save.
 
-2.Next step open the terminal.Redirect it to the folder which containes the zip file.
+2. Next step open the terminal.Redirect it to the folder which containes the zip file.
 
-3.Next run npm install on terminal.It will install all the node modules that is required.
+3. Next run npm install on terminal.It will install all the node modules that is required.
 
-4.Once this is done the node modules will appear in the directory.
+4. Once this is done the node modules will appear in the directory.
 
-5.Next open a terminal and type node server.js.
+5. Next open a terminal and type node server.js.
 
-6.You will be able to open the webpage using the //ipaddress:3600.
+6. You will be able to open the webpage using the //ipaddress:3600.
 
-7.Next open a new terminal and type node script.js.
+7. Next open a new terminal and type node script.js.
 
-8.Your website should be able to send images to the system.
+8. Your website should be able to send images to the system.
 
 Notes
 -----
-Insert tips such as
 
 * Ctrl+c will kill the server
 * Avoid hitting Ctrl+z, as it will pause the server, requiring a restart or port change to work again
