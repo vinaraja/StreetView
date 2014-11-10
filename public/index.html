@@ -152,11 +152,12 @@
 	}
 	#map_form input{ 
 		background: rgba( 255,255,255,.5 ) url( search.png ) no-repeat 5px 50%; 
-		padding-left: 25px; 
-		width: 185px; 
-		height: 26px; 
+		padding: 11px 10px; 
+		width: 175px; 
+		/*height: 3em; */
 		border: 1px solid #444; 
-		margin-top: 2px
+		margin: 5px;
+        font-size: 20px;
 	}
 	#map_form input:focus{ 
 		background-color: rgba( 255,255,255,.85 ); 
@@ -242,7 +243,7 @@
             <div class="block">
                 <form id="map_form">
                     <input type="text" id="address" name="address"/>
-                    <button type="submit" class="primary button" id="searchButton" >Search</button>
+                    <button type="submit" class="primary button big" id="searchButton" >Search</button>
                 </form>
             </div>
 
@@ -269,7 +270,7 @@
                 <!--<button type="submit" id="saveImageButton" style="width: 100%" class="button">Save pano</button>-->
                 <form action="process" method="get">
                     <input type="hidden" name="address1" id="address1" />
-                    <button type="submit" id="sendImageButton" style="width: 100%" class="button">Send pano to SOS</button>               
+                    <button type="submit" id="sendImageButton" style="width: 97%;" class="button primary big">Send pano to SOS</button>               
                 </form>
             </div>
                 
