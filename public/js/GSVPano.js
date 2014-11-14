@@ -187,8 +187,14 @@ GSVPANO.PanoLoader = function (parameters) {
 		http_request.onreadystatechange = function () {
 			if ( http_request.readyState == 4 && http_request.status == 200 ) {
 				var data = JSON.parse( http_request.responseText );
-				//self.loadPano( location, data.Location.panoId );
-				self.loadPano( location, data.result[ 0 ].id );
+                
+                try  {
+                    //self.loadPano( location, data.Location.panoId );
+				    self.loadPano( location, data.result[ 0 ].id );
+                }
+                catch (e) {
+                    showMessage('No imagery for this location.');
+                }
 			}
 		};
 		http_request.send(null);
